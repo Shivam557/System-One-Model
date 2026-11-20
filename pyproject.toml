@@ -1,0 +1,45 @@
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open-decision-model"
+version = "0.1.0"
+description = "An open-source, structured decision-making model with API and agent integrations."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    { name = "ODM Contributors" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.9"
+]
+api = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30"
+]
+ml = [
+    "torch>=2.5",
+    "numpy>=1.26",
+    "scikit-learn>=1.5"
+]
+mcp = [
+    "mcp>=1.0"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
